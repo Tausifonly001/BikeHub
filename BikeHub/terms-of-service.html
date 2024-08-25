@@ -1,0 +1,360 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Terms of Service - BikeHub</title>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="./style.css">
+    <style>
+        /* Terms of Service Styles */
+        .terms-of-service {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+            padding-top: 80px;
+        }
+
+        .terms-of-service h1 {
+            border-bottom: 2px solid #e74c3c;
+            padding-bottom: 10px;
+            margin-bottom: 20px;
+            margin-top: 0;
+        }
+
+        .terms-of-service section {
+            margin-bottom: 30px;
+            opacity: 0;
+            transform: translateY(20px);
+            transition: opacity 0.5s ease, transform 0.5s ease;
+        }
+
+        .terms-of-service section.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .terms-of-service h2 {
+            color: #c0392b;
+            margin-bottom: 15px;
+            position: relative;
+            padding-left: 20px;
+        }
+
+        .terms-of-service h2::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 10px;
+            height: 10px;
+            background-color: #e74c3c;
+            border-radius: 50%;
+        }
+
+        .terms-of-service p {
+            text-align: justify;
+            line-height: 1.6;
+        }
+
+        .terms-of-service ol {
+            padding-left: 20px;
+            margin-bottom: 15px;
+        }
+
+        .terms-of-service li {
+            margin-bottom: 10px;
+        }
+
+        /* Updated Header Styles */
+        header {
+            background-color: #ffffff;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            padding: 15px 0;
+        }
+
+        .header-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0 20px;
+        }
+
+        .logo {
+            color: #e74c3c;
+            font-size: 28px;
+            font-weight: bold;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        .logo:hover {
+            color: #c0392b;
+        }
+
+        nav a {
+            color: #333;
+            text-decoration: none;
+            margin-left: 20px;
+            font-size: 16px;
+            font-weight: 500;
+            transition: color 0.3s ease;
+        }
+
+        nav a:hover {
+            color: #e74c3c;
+        }
+
+        /* Responsive and Sliding Nav Styles */
+        @media screen and (max-width: 768px) {
+            .header-content {
+                justify-content: space-between;
+            }
+            nav {
+                position: fixed;
+                top: 0;
+                right: -250px;
+                width: 250px;
+                height: 100vh;
+                background-color: #ffffff;
+                box-shadow: -2px 0 5px rgba(0,0,0,0.1);
+                transition: right 0.3s ease;
+                z-index: 1000;
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+            }
+            nav.show {
+                right: 0;
+            }
+            nav a {
+                display: block;
+                margin: 15px 20px;
+                font-size: 18px;
+                text-align: center;
+            }
+            .menu-toggle {
+                display: block;
+                color: #333;
+                font-size: 24px;
+                cursor: pointer;
+                z-index: 1001;
+            }
+            .terms-of-service {
+                padding: 20px;
+                padding-top: 100px;
+            }
+        }
+
+        .overlay {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0,0,0,0.5);
+            z-index: 999;
+            transition: opacity 0.3s ease;
+            opacity: 0;
+        }
+
+        .overlay.show {
+            opacity: 1;
+        }
+
+        /* Footer Styles */
+        footer {
+            background-color: #34495e;
+            color: white;
+            padding: 20px 0;
+            text-align: center;
+        }
+
+        .footer-content {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .footer-links {
+            margin-bottom: 10px;
+        }
+
+        .footer-links a {
+            color: white;
+            text-decoration: none;
+            margin: 0 10px;
+        }
+        .footer-links a:hover{
+            color:#c0392b;
+        }
+        .copyright {
+            font-size: 14px;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="header-content">
+            <a href="index.html" class="logo">BikeHub</a>
+            <div class="menu-toggle">☰</div>
+            <nav>
+                <a href="index.html">Home</a>
+                <a href="index.html">Bikes</a>
+                <a href="about.html">About</a>
+                <a href="services.html">Services</a>
+                <a href="contact.html">Contact</a>
+            </nav>
+        </div>
+    </header>
+
+    <div class="overlay"></div>
+
+    <main class="container terms-of-service">
+        <h1>Terms of Service</h1>
+        <p id="last-updated">Last updated: [Date]</p>
+
+        <section>
+            <h2>1. Acceptance of Terms</h2>
+            <p>By accessing or using BikeHub's services, you agree to be bound by these Terms of Service. If you disagree with any part of the terms, you may not access the service.</p>
+        </section>
+
+        <section>
+            <h2>2. Use of Services</h2>
+            <p>Our services are provided "as is" and "as available" without warranties of any kind, either express or implied. We do not guarantee that our services will always be available, uninterrupted, secure, or error-free.</p>
+        </section>
+
+        <section>
+            <h2>3. User Responsibilities</h2>
+            <p>You are responsible for maintaining the confidentiality of your account and password. You agree to accept responsibility for all activities that occur under your account or password.</p>
+        </section>
+
+        <section>
+            <h2>4. Content</h2>
+            <p>You retain all rights to any content you submit, post or display on or through our services. By submitting, posting or displaying content, you grant us a worldwide, non-exclusive, royalty-free license to use, reproduce, adapt, publish, translate and distribute such content.</p>
+        </section>
+
+        <section>
+            <h2>5. Termination</h2>
+            <p>We may terminate or suspend your account and bar access to the service immediately, without prior notice or liability, under our sole discretion, for any reason whatsoever and without limitation, including but not limited to a breach of the Terms.</p>
+        </section>
+
+        <section>
+            <h2>6. Limitation of Liability</h2>
+            <p>In no event shall BikeHub, nor its directors, employees, partners, agents, suppliers, or affiliates, be liable for any indirect, incidental, special, consequential or punitive damages, including without limitation, loss of profits, data, use, goodwill, or other intangible losses, resulting from your access to or use of or inability to access or use the service.</p>
+        </section>
+
+        <section>
+            <h2>7. Changes to Terms</h2>
+            <p>We reserve the right, at our sole discretion, to modify or replace these Terms at any time. If a revision is material we will provide at least 30 days' notice prior to any new terms taking effect. What constitutes a material change will be determined at our sole discretion.</p>
+        </section>
+    </main>
+
+    <footer>
+        <div class="footer-content">
+            <div class="footer-links">
+                <a href="privacy-policy.html">Privacy Policy</a>
+                <a href="terms-of-service.html">Terms of Service</a>
+                <a href="sitemap.html">Sitemap</a>
+            </div>
+            <div class="copyright">
+                <p>&copy; 2024 Md Tausif Ali Ansari. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Function to add last updated date to privacy policy and terms of service
+        function addLastUpdatedDate() {
+            const lastUpdatedElement = document.getElementById('last-updated');
+            if (lastUpdatedElement) {
+                const lastUpdated = new Date(document.lastModified);
+                lastUpdatedElement.textContent = `Last updated: ${lastUpdated.toDateString()}`;
+            }
+        }
+
+        // Function to highlight current page in sitemap
+        function highlightCurrentPage() {
+            if (document.body.classList.contains('sitemap')) {
+                const currentPage = window.location.pathname.split("/").pop();
+                const sitemapLinks = document.querySelectorAll('.sitemap ul li a');
+                sitemapLinks.forEach(link => {
+                    if (link.getAttribute('href') === currentPage) {
+                        link.style.fontWeight = 'bold';
+                        link.style.color = '#16a085';
+                    }
+                });
+            }
+        }
+
+        // Function to animate sections on scroll
+        function animateSections() {
+            const sections = document.querySelectorAll('.terms-of-service section');
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('visible');
+                    }
+                });
+            }, { threshold: 0.1 });
+
+            sections.forEach(section => {
+                observer.observe(section);
+            });
+        }
+
+        // Updated function to toggle sliding navigation
+        function toggleSlidingNav() {
+            const nav = document.querySelector('nav');
+            const overlay = document.querySelector('.overlay');
+            const menuToggle = document.querySelector('.menu-toggle');
+            
+            nav.classList.toggle('show');
+            overlay.classList.toggle('show');
+            
+            if (nav.classList.contains('show')) {
+                overlay.style.display = 'block';
+                document.body.style.overflow = 'hidden';
+                menuToggle.innerHTML = '&times;';
+            } else {
+                setTimeout(() => {
+                    overlay.style.display = 'none';
+                }, 300);
+                document.body.style.overflow = 'auto';
+                menuToggle.innerHTML = '☰';
+            }
+        }
+
+        // Call functions when DOM is loaded
+        document.addEventListener('DOMContentLoaded', function() {
+            addLastUpdatedDate();
+            highlightCurrentPage();
+            animateSections();
+
+            // Add event listeners for menu toggle and overlay
+            const menuToggle = document.querySelector('.menu-toggle');
+            const overlay = document.querySelector('.overlay');
+            menuToggle.addEventListener('click', toggleSlidingNav);
+            overlay.addEventListener('click', toggleSlidingNav);
+        });
+
+        // Add event listener for window resize
+        window.addEventListener('resize', function() {
+            const nav = document.querySelector('nav');
+            const overlay = document.querySelector('.overlay');
+            const menuToggle = document.querySelector('.menu-toggle');
+
+            if (window.innerWidth > 768) {
+                nav.classList.remove('show');
+                overlay.classList.remove('show');
+                overlay.style.display = 'none';
+                document.body.style.overflow = 'auto';
+                menuToggle.innerHTML = '☰';
+            }
+        });
+    </script>
+</body>
+</html>

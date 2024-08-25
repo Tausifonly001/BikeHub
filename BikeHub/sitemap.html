@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sitemap - BikeHub</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+    <style>
+        /* Global Styles */
+        body {
+            font-family: 'Poppins', sans-serif;
+            line-height: 1.6;
+            color: #333;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Header Styles */
+        header {
+            background-color: #2ecc71;
+            color: white;
+            padding: 1rem 0;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+
+        .header-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: 600;
+        }
+
+        .nav-links {
+            list-style: none;
+            display: flex;
+            gap: 20px;
+        }
+
+        .nav-links a {
+            color: white;
+            text-decoration: none;
+            transition: opacity 0.3s ease;
+        }
+
+        .nav-links a:hover {
+            opacity: 0.8;
+        }
+
+        /* Sitemap Styles */
+        .sitemap {
+            background-color: white;
+            border-radius: 8px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+            padding: 2rem;
+            margin: 2rem auto;
+        }
+
+        .sitemap h1 {
+            color: #2ecc71;
+            text-align: center;
+            margin-bottom: 2rem;
+        }
+
+        .sitemap-list {
+            list-style-type: none;
+            padding-left: 0;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1rem;
+        }
+
+        .sitemap-list a {
+            text-decoration: none;
+            color: #333;
+            font-weight: 400;
+            transition: all 0.3s ease;
+            display: block;
+            padding: 0.75rem;
+            border-radius: 4px;
+            background-color: #f0f0f0;
+            text-align: center;
+        }
+
+        .sitemap-list a:hover {
+            color: #2ecc71;
+            transform: translateY(-2px);
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+
+        /* Footer Styles */
+        footer {
+            background-color: #333;
+            color: white;
+            padding: 2rem 0;
+            margin-top: 2rem;
+        }
+
+        .footer-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+        }
+
+        .footer-links a {
+            color: white;
+            text-decoration: none;
+            margin-right: 1rem;
+            transition: color 0.3s ease;
+        }
+
+        .footer-links a:hover {
+            color: #2ecc71;
+        }
+
+        .copyright {
+            margin-top: 1rem;
+        }
+
+        @media (max-width: 768px) {
+            .header-content, .footer-content {
+                flex-direction: column;
+                text-align: center;
+            }
+
+            .nav-links, .footer-links {
+                margin-top: 1rem;
+            }
+
+            .sitemap-list {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container header-content">
+            <div class="logo">BikeHub</div>
+            <nav>
+                <ul class="nav-links">
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="shop.html">Shop</a></li>
+                    <li><a href="services.html">Services</a></li>
+                    <li><a href="about.html">About</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main class="container sitemap">
+        <h1>Sitemap</h1>
+        <nav aria-label="Sitemap navigation">
+            <ul class="sitemap-list">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="index.html#shop">Bikes</a></li>
+                <li><a href="shop.html">Shop</a></li>
+                <li><a href="services.html">Services</a></li>
+                <li><a href="about.html">About Us</a></li>
+                <li><a href="index.html#contact">Contact</a></li>
+                <li><a href="privacy-policy.html">Privacy Policy</a></li>
+                <li><a href="terms-of-service.html">Terms of Service</a></li>
+            </ul>
+        </nav>
+    </main>
+
+    <footer>
+        <div class="container footer-content">
+            <div class="footer-links">
+                <a href="privacy-policy.html">Privacy Policy</a>
+                <a href="terms-of-service.html">Terms of Service</a>
+                <a href="sitemap.html">Sitemap</a>
+            </div>
+            <div class="copyright">
+                <p>&copy; 2024 Md Tausif Ali Ansari. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>

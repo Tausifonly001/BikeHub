@@ -1,0 +1,527 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BikeHub - About Us</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css">
+    <style>
+                :root {
+            --primary-color: #2c3e50;
+            --secondary-color: #e74c3c;
+            --text-color: #333;
+            --bg-color: #f4f4f4;
+        }
+        
+        body {
+            font-family: 'Roboto', sans-serif;
+            margin: 0;
+            padding: 0;
+            line-height: 1.6;
+            color: var(--text-color);
+            background-color: var(--bg-color);
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        header {
+            background-color: var(--primary-color);
+            color: #fff;
+            padding: 1rem 0;
+            position: fixed;
+            width: 100%;
+            z-index: 1000;
+        }
+
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: bold;
+        }
+
+        .nav-toggle {
+            display: none;
+        }
+
+        nav ul {
+            list-style-type: none;
+            padding: 0;
+            display: flex;
+        }
+
+        nav ul li {
+            margin-left: 20px;
+        }
+
+        nav ul li a {
+            color: #fff;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        nav ul li a:hover {
+            color: var(--secondary-color);
+        }
+
+        .hero {
+            background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('https://images.unsplash.com/photo-1507035895480-2b3156c31fc8?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80');
+            background-size: cover;
+            background-position: center;
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            color: #fff;
+        }
+
+        .hero h1 {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+        }
+
+        .hero p {
+            font-size: 1.2rem;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .cta-button {
+            display: inline-block;
+            background-color: var(--secondary-color);
+            color: #fff;
+            padding: 10px 20px;
+            border-radius: 5px;
+            text-decoration: none;
+            margin-top: 20px;
+            transition: background-color 0.3s ease;
+        }
+
+        .cta-button:hover {
+            background-color: #c0392b;
+        }
+
+        section {
+            padding: 4rem 0;
+        }
+
+        h2 {
+            text-align: center;
+            margin-bottom: 2rem;
+            font-size: 2.5rem;
+            color: var(--primary-color);
+        }
+
+        .bike-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+
+        .bike-card {
+            background-color: #fff;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease;
+        }
+
+        .bike-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .bike-card img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+        }
+
+        .bike-info {
+            padding: 20px;
+        }
+
+        .bike-info h3 {
+            margin-top: 0;
+        }
+
+        .testimonials {
+            background-color: #fff;
+            padding: 4rem 0;
+        }
+
+        .testimonial-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+
+        .testimonial-card {
+            background-color: var(--bg-color);
+            border-radius: 10px;
+            padding: 2rem;
+            text-align: center;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease;
+        }
+
+        .testimonial-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .testimonial-card img {
+            width: 100px;
+            height: 100px;
+            border-radius: 50%;
+            margin-bottom: 1rem;
+            object-fit: cover;
+        }
+
+        .gallery {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+        }
+
+        .gallery img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+            border-radius: 10px;
+            transition: transform 0.3s ease;
+        }
+
+        .gallery img:hover {
+            transform: scale(1.05);
+        }
+
+        .contact-form {
+            max-width: 600px;
+            margin: 0 auto;
+            background-color: #fff;
+            padding: 2rem;
+            border-radius: 10px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        .contact-form input,
+        .contact-form textarea {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 1rem;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+        }
+
+        .contact-form button {
+            background-color: var(--secondary-color);
+            color: #fff;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        .contact-form button:hover {
+            background-color: #c0392b;
+        }
+
+        .faq {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .faq-item {
+            margin-bottom: 1rem;
+            border-radius: 5px;
+            overflow: hidden;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+
+        .faq-question {
+            background-color: var(--primary-color);
+            color: #fff;
+            padding: 1rem;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        .faq-question:hover {
+            background-color: #34495e;
+        }
+
+        .faq-answer {
+            background-color: #fff;
+            padding: 1rem;
+            display: none;
+        }
+
+        .faq-item.active .faq-answer {
+            display: block;
+        }
+
+        footer {
+            background-color: var(--primary-color);
+            color: #fff;
+            text-align: center;
+            padding: 1rem 0;
+        }
+
+        @media (max-width: 768px) {
+            .nav-toggle {
+                display: block;
+                font-size: 1.5rem;
+                background: none;
+                border: none;
+                color: #fff;
+                cursor: pointer;
+            }
+
+            nav ul {
+                display: none;
+                flex-direction: column;
+                width: 100%;
+                position: absolute;
+                top: 60px;
+                left: 0;
+                background-color: var(--primary-color);
+                padding: 1rem;
+            }
+
+            nav ul.show {
+                display: flex;
+            }
+
+            nav ul li {
+                margin: 10px 0;
+            }
+        }
+
+        /* Animations */
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        @keyframes slideInFromLeft {
+            from { transform: translateX(-50px); opacity: 0; }
+            to { transform: translateX(0); opacity: 1; }
+        }
+
+        @keyframes slideInFromRight {
+            from { transform: translateX(50px); opacity: 0; }
+            to { transform: translateX(0); opacity: 1; }
+        }
+
+        @keyframes bounce {
+            0%, 20%, 50%, 80%, 100% { transform: translateY(0); }
+            40% { transform: translateY(-30px); }
+            60% { transform: translateY(-15px); }
+        }
+
+        .hero h1 {
+            animation: fadeIn 1.5s ease-out;
+        }
+
+        .hero p {
+            animation: fadeIn 1.5s ease-out 0.5s both;
+        }
+
+        .cta-button {
+            animation: bounce 2s ease infinite;
+        }
+
+        .bike-card {
+            animation: fadeIn 0.8s ease-out;
+        }
+
+        .bike-card:nth-child(1) { animation-delay: 0.2s; }
+        .bike-card:nth-child(2) { animation-delay: 0.4s; }
+        .bike-card:nth-child(3) { animation-delay: 0.6s; }
+
+        .testimonial-card {
+            animation: slideInFromRight 0.8s ease-out both;
+        }
+
+        .testimonial-card:nth-child(1) { animation-delay: 0.2s; }
+        .testimonial-card:nth-child(2) { animation-delay: 0.4s; }
+        .testimonial-card:nth-child(3) { animation-delay: 0.6s; }
+
+        .gallery img {
+            animation: fadeIn 0.8s ease-out both;
+        }
+
+        .gallery img:nth-child(1) { animation-delay: 0.2s; }
+        .gallery img:nth-child(2) { animation-delay: 0.4s; }
+        .gallery img:nth-child(3) { animation-delay: 0.6s; }
+        .gallery img:nth-child(4) { animation-delay: 0.8s; }
+        /* Additional styles specific to the about page */
+        .about h1, .team h2, .history h2, .values h2 {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+
+        .about p {
+            text-align: justify;
+            max-width: 800px;
+            margin: 0 auto 20px;
+        }
+
+        .history ul {
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .history li {
+            margin-bottom: 10px;
+        }
+
+        .values .feature-grid {
+            margin-top: 30px;
+        }
+        .footer-links a {
+            color: #fff;
+            text-decoration: none;
+            margin: 0 10px;
+        }
+        .footer-links a:hover{
+            color:#c0392b;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <nav>
+                <div class="logo">BikeHub</div>
+                <button class="nav-toggle">☰</button>
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="index.html">Bikes</a></li>
+                    <li><a href="shop.html">Shop</a></li>
+                    <li><a href="services.html">Services</a></li>
+                    <li><a href="about.html">About Us</a></li>
+                    <li><a href="index.html#contact">Contact</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <section class="about">
+            <div class="container">
+                <h1>About BikeHub</h1>
+                <p>BikeHub is your one-stop destination for all things cycling. Founded in 2010, we've been passionate about providing high-quality bikes, accessories, and services to cycling enthusiasts of all levels.</p>
+                <p>Our mission is to promote a healthy and sustainable lifestyle through cycling, while offering exceptional products and services to our customers.</p>
+            </div>
+        </section>
+
+        <section class="team">
+            <div class="container">
+                <h2>Our Team</h2>
+                <div class="bike-grid">
+                    <div class="bike-card">
+                        <img src="https://images.unsplash.com/photo-1438761681033-6461ffad8d80" alt="Jane Doe">
+                        <div class="bike-info">
+                            <h3>Jane Doe</h3>
+                            <p>Founder & CEO</p>
+                        </div>
+                    </div>
+                    <div class="bike-card">
+                        <img src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e" alt="John Smith">
+                        <div class="bike-info">
+                            <h3>John Smith</h3>
+                            <p>Head Mechanic</p>
+                        </div>
+                    </div>
+                    <div class="bike-card">
+                        <img src="https://images.unsplash.com/photo-1494790108377-be9c29b29330" alt="Emily Brown">
+                        <div class="bike-info">
+                            <h3>Emily Brown</h3>
+                            <p>Customer Service Manager</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="history">
+            <div class="container">
+                <h2>Our History</h2>
+                <ul>
+                    <li><strong>2010:</strong> BikeHub founded as a small bike repair shop</li>
+                    <li><strong>2012:</strong> Expanded to selling bikes and accessories</li>
+                    <li><strong>2015:</strong> Opened our flagship store in downtown</li>
+                    <li><strong>2018:</strong> Launched our online store</li>
+                    <li><strong>2020:</strong> Celebrated 10 years of serving the cycling community</li>
+                    <li><strong>2023:</strong> Expanded to multiple locations across the country</li>
+                </ul>
+            </div>
+        </section>
+
+        <section class="values">
+            <div class="container">
+                <h2>Our Values</h2>
+                <div class="feature-grid">
+                    <div class="feature-item">
+                        <i class="fas fa-heart"></i>
+                        <h3>Passion for Cycling</h3>
+                        <p>We love bikes and want to share that passion with our customers.</p>
+                    </div>
+                    <div class="feature-item">
+                        <i class="fas fa-leaf"></i>
+                        <h3>Sustainability</h3>
+                        <p>We're committed to promoting eco-friendly transportation.</p>
+                    </div>
+                    <div class="feature-item">
+                        <i class="fas fa-users"></i>
+                        <h3>Community</h3>
+                        <p>We support and engage with the local cycling community.</p>
+                    </div>
+                    <div class="feature-item">
+                        <i class="fas fa-star"></i>
+                        <h3>Quality</h3>
+                        <p>We offer only the best products and services to our customers.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container">
+            <div class="footer-links">
+                <a href="privacy-policy.html">Privacy Policy</a>
+                <a href="terms-of-service.html">Terms of Service</a>
+                <a href="sitemap.html">Sitemap</a>
+            </div>
+            <p>&copy; 2024Md Tausif Ali Ansari. All rights reserved.</p>
+        </div>
+    </footer>
+    <script src="./script.js"></script>
+    <script>
+        // Additional scripts specific to the about page
+        document.addEventListener('DOMContentLoaded', function() {
+            const teamMembers = document.querySelectorAll('.team .bike-card');
+            
+            teamMembers.forEach(member => {
+                member.addEventListener('mouseover', function() {
+                    this.style.transform = 'scale(1.05)';
+                });
+                member.addEventListener('mouseout', function() {
+                    this.style.transform = 'scale(1)';
+                });
+            });
+        });
+    </script>
+</body>
+</html>

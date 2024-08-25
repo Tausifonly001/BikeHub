@@ -1,0 +1,522 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BikeHub - Services</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css">
+    <style>
+                :root {
+            --primary-color: #2c3e50;
+            --secondary-color: #e74c3c;
+            --text-color: #333;
+            --bg-color: #f4f4f4;
+        }
+        
+        body {
+            font-family: 'Roboto', sans-serif;
+            margin: 0;
+            padding: 0;
+            line-height: 1.6;
+            color: var(--text-color);
+            background-color: var(--bg-color);
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        header {
+            background-color: var(--primary-color);
+            color: #fff;
+            padding: 1rem 0;
+            position: fixed;
+            width: 100%;
+            z-index: 1000;
+        }
+
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: bold;
+        }
+
+        .nav-toggle {
+            display: none;
+        }
+
+        nav ul {
+            list-style-type: none;
+            padding: 0;
+            display: flex;
+        }
+
+        nav ul li {
+            margin-left: 20px;
+        }
+
+        nav ul li a {
+            color: #fff;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        nav ul li a:hover {
+            color: var(--secondary-color);
+        }
+
+        .hero {
+            background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('https://images.unsplash.com/photo-1507035895480-2b3156c31fc8?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80');
+            background-size: cover;
+            background-position: center;
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            color: #fff;
+        }
+
+        .hero h1 {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+        }
+
+        .hero p {
+            font-size: 1.2rem;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .cta-button {
+            display: inline-block;
+            background-color: var(--secondary-color);
+            color: #fff;
+            padding: 10px 20px;
+            border-radius: 5px;
+            text-decoration: none;
+            margin-top: 20px;
+            transition: background-color 0.3s ease;
+        }
+
+        .cta-button:hover {
+            background-color: #c0392b;
+        }
+
+        section {
+            padding: 4rem 0;
+        }
+
+        h2 {
+            text-align: center;
+            margin-bottom: 2rem;
+            font-size: 2.5rem;
+            color: var(--primary-color);
+        }
+
+        .bike-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+
+        .bike-card {
+            background-color: #fff;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease;
+        }
+
+        .bike-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .bike-card img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+        }
+
+        .bike-info {
+            padding: 20px;
+        }
+
+        .bike-info h3 {
+            margin-top: 0;
+        }
+
+        .testimonials {
+            background-color: #fff;
+            padding: 4rem 0;
+        }
+
+        .testimonial-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+
+        .testimonial-card {
+            background-color: var(--bg-color);
+            border-radius: 10px;
+            padding: 2rem;
+            text-align: center;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease;
+        }
+
+        .testimonial-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .testimonial-card img {
+            width: 100px;
+            height: 100px;
+            border-radius: 50%;
+            margin-bottom: 1rem;
+            object-fit: cover;
+        }
+
+        .gallery {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+        }
+
+        .gallery img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+            border-radius: 10px;
+            transition: transform 0.3s ease;
+        }
+
+        .gallery img:hover {
+            transform: scale(1.05);
+        }
+
+        .contact-form {
+            max-width: 600px;
+            margin: 0 auto;
+            background-color: #fff;
+            padding: 2rem;
+            border-radius: 10px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        .contact-form input,
+        .contact-form textarea {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 1rem;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+        }
+
+        .contact-form button {
+            background-color: var(--secondary-color);
+            color: #fff;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        .contact-form button:hover {
+            background-color: #c0392b;
+        }
+
+        .faq {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .faq-item {
+            margin-bottom: 1rem;
+            border-radius: 5px;
+            overflow: hidden;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+
+        .faq-question {
+            background-color: var(--primary-color);
+            color: #fff;
+            padding: 1rem;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        .faq-question:hover {
+            background-color: #34495e;
+        }
+
+        .faq-answer {
+            background-color: #fff;
+            padding: 1rem;
+            display: none;
+        }
+
+        .faq-item.active .faq-answer {
+            display: block;
+        }
+
+        footer {
+            background-color: var(--primary-color);
+            color: #fff;
+            text-align: center;
+            padding: 1rem 0;
+        }
+
+        @media (max-width: 768px) {
+            .nav-toggle {
+                display: block;
+                font-size: 1.5rem;
+                background: none;
+                border: none;
+                color: #fff;
+                cursor: pointer;
+            }
+
+            nav ul {
+                display: none;
+                flex-direction: column;
+                width: 100%;
+                position: absolute;
+                top: 60px;
+                left: 0;
+                background-color: var(--primary-color);
+                padding: 1rem;
+            }
+
+            nav ul.show {
+                display: flex;
+            }
+
+            nav ul li {
+                margin: 10px 0;
+            }
+        }
+
+        /* Animations */
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        @keyframes slideInFromLeft {
+            from { transform: translateX(-50px); opacity: 0; }
+            to { transform: translateX(0); opacity: 1; }
+        }
+
+        @keyframes slideInFromRight {
+            from { transform: translateX(50px); opacity: 0; }
+            to { transform: translateX(0); opacity: 1; }
+        }
+
+        @keyframes bounce {
+            0%, 20%, 50%, 80%, 100% { transform: translateY(0); }
+            40% { transform: translateY(-30px); }
+            60% { transform: translateY(-15px); }
+        }
+
+        .hero h1 {
+            animation: fadeIn 1.5s ease-out;
+        }
+
+        .hero p {
+            animation: fadeIn 1.5s ease-out 0.5s both;
+        }
+
+        .cta-button {
+            animation: bounce 2s ease infinite;
+        }
+
+        .bike-card {
+            animation: fadeIn 0.8s ease-out;
+        }
+
+        .bike-card:nth-child(1) { animation-delay: 0.2s; }
+        .bike-card:nth-child(2) { animation-delay: 0.4s; }
+        .bike-card:nth-child(3) { animation-delay: 0.6s; }
+
+        .testimonial-card {
+            animation: slideInFromRight 0.8s ease-out both;
+        }
+
+        .testimonial-card:nth-child(1) { animation-delay: 0.2s; }
+        .testimonial-card:nth-child(2) { animation-delay: 0.4s; }
+        .testimonial-card:nth-child(3) { animation-delay: 0.6s; }
+
+        .gallery img {
+            animation: fadeIn 0.8s ease-out both;
+        }
+
+        .gallery img:nth-child(1) { animation-delay: 0.2s; }
+        .gallery img:nth-child(2) { animation-delay: 0.4s; }
+        .gallery img:nth-child(3) { animation-delay: 0.6s; }
+        .gallery img:nth-child(4) { animation-delay: 0.8s; }
+        /* Additional styles specific to the services page */
+        .services h1, .pricing h2 {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+
+        .feature-grid {
+            margin-bottom: 50px;
+        }
+
+        .pricing .bike-card {
+            text-align: center;
+        }
+
+        .pricing ul {
+            list-style-type: none;
+            padding: 0;
+            margin-bottom: 20px;
+        }
+
+        .pricing .price {
+            font-weight: bold;
+            font-size: 1.2em;
+            margin: 10px 0;
+        }
+        .footer-links a {
+            color: #fff;
+            text-decoration: none;
+            margin: 0 10px;
+        }
+        .footer-links a:hover{
+            color:#c0392b;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <nav>
+                <div class="logo">BikeHub</div>
+                <button class="nav-toggle">☰</button>
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="index.html">Bikes</a></li>
+                    <li><a href="shop.html">Shop</a></li>
+                    <li><a href="services.html">Services</a></li>
+                    <li><a href="about.html">About Us</a></li>
+                    <li><a href="index.html#contact">Contact</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <section class="services">
+            <div class="container">
+                <h1>Our Services</h1>
+                <div class="feature-grid">
+                    <div class="feature-item">
+                        <i class="fas fa-tools"></i>
+                        <h3>Bike Repair</h3>
+                        <p>Expert repair services for all types of bikes.</p>
+                    </div>
+                    <div class="feature-item">
+                        <i class="fas fa-cogs"></i>
+                        <h3>Bike Maintenance</h3>
+                        <p>Regular maintenance to keep your bike in top condition.</p>
+                    </div>
+                    <div class="feature-item">
+                        <i class="fas fa-paint-brush"></i>
+                        <h3>Custom Paint Jobs</h3>
+                        <p>Personalize your bike with custom paint designs.</p>
+                    </div>
+                    <div class="feature-item">
+                        <i class="fas fa-bicycle"></i>
+                        <h3>Bike Fitting</h3>
+                        <p>Professional bike fitting for optimal comfort and performance.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="pricing">
+            <div class="container">
+                <h2>Service Packages</h2>
+                <div class="bike-grid">
+                    <div class="bike-card">
+                        <div class="bike-info">
+                            <h3>Basic Tune-Up</h3>
+                            <ul>
+                                <li>Brake adjustment</li>
+                                <li>Gear adjustment</li>
+                                <li>Tire inflation</li>
+                                <li>Chain lubrication</li>
+                            </ul>
+                            <p class="price">$59.99</p>
+                            <button class="cta-button">Book Now</button>
+                        </div>
+                    </div>
+                    <div class="bike-card">
+                        <div class="bike-info">
+                            <h3>Comprehensive Service</h3>
+                            <ul>
+                                <li>Full bike disassembly</li>
+                                <li>Deep cleaning</li>
+                                <li>Parts inspection</li>
+                                <li>Reassembly and adjustment</li>
+                            </ul>
+                            <p class="price">$149.99</p>
+                            <button class="cta-button">Book Now</button>
+                        </div>
+                    </div>
+                    <div class="bike-card">
+                        <div class="bike-info">
+                            <h3>Custom Build</h3>
+                            <ul>
+                                <li>Frame selection</li>
+                                <li>Component customization</li>
+                                <li>Professional assembly</li>
+                                <li>Final fitting and adjustment</li>
+                            </ul>
+                            <p class="price">Starting at $999.99</p>
+                            <button class="cta-button">Inquire</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container">
+            <div class="footer-links">
+                <a href="privacy-policy.html">Privacy Policy</a>
+                <a href="terms-of-service.html">Terms of Service</a>
+                <a href="sitemap.html">Sitemap</a>
+            </div>
+            <p>&copy; 2024 Md Tausif Ali Ansari. All rights reserved.</p>
+        </div>
+    </footer>
+    <script src="./script.js"></script>
+    <script>
+        // Additional scripts specific to the services page
+        document.addEventListener('DOMContentLoaded', function() {
+            const bookButtons = document.querySelectorAll('.cta-button');
+            
+            bookButtons.forEach(button => {
+                button.addEventListener('click', function() {
+                    alert('Thank you for booking our service! We will contact you shortly.');
+                    // Here you would typically implement actual booking functionality
+                });
+            });
+        });
+    </script>
+</body>
+</html>
